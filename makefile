@@ -11,7 +11,7 @@ film_grain_rendering_main: $(OBJS)
 obj/film_grain_rendering_main.o: src/film_grain_rendering_main.cpp
 	$(NVCC) $(INC) -c src/film_grain_rendering_main.cpp -o obj/film_grain_rendering_main.o
 obj/film_grain_rendering.o: src/film_grain_rendering.cu
-	$(NVCC) $(INC) -c src/film_grain_rendering.cu -o obj/film_grain_rendering.o
+	$(NVCC) $(INC) -gencode=arch=compute_75,code=sm_75 -c src/film_grain_rendering.cu -o obj/film_grain_rendering.o
 obj/matrix.o: src/matrix.cpp src/matrix.h
 	$(CC) $(INC) -c src/matrix.cpp -o obj/matrix.o
 obj/io_png.o: src/io_png.c
